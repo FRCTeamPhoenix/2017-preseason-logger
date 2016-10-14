@@ -28,7 +28,7 @@ public:
 	    LOGD << "IT WORKS!";
 	    LOGD << "IT REALLY WORKS!!!";
 	    LOGD << "LETS PUT MORE HOLES IN THE WALL!!!!!";
-		robotDrive.SetExpiration(0.1);
+	       robotDrive.SetExpiration(0.1);
 		robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);	// invert the left side motors
 		robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);	// you may need to change or remove this to match your robot
 	}
