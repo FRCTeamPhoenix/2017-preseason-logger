@@ -1,5 +1,6 @@
 #include "WPILib.h"
 #include "plog/Log.h"
+#include "sys/stat.h"
 
 /**
  * This is a demo program showing how to use Mecanum control with the RobotDrive class.
@@ -24,7 +25,8 @@ public:
 					   frontRightChannel, rearRightChannel),	// these must be initialized in the same order
 			stick(joystickChannel)								// as they are declared above.
 	{
-	    plog::init(plog::debug, "robot_logger.txt");
+	    plog::init(plog::debug, "/home/lvuser/robot_logger.txt");
+	    LOGD << "-------------------------New Run-------------------------";
 	    LOGD << "IT WORKS!";
 	    LOGD << "IT REALLY WORKS!!!";
 	    LOGD << "LETS PUT MORE HOLES IN THE WALL!!!!!";
