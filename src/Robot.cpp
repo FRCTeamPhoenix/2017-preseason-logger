@@ -1,7 +1,7 @@
 #include "WPILib.h"
 #include "plog/Log.h"
 #include "sys/stat.h"
-
+#include "LoggerController.h"
 /**
  * This is a demo program showing how to use Mecanum control with the RobotDrive class.
  */
@@ -18,18 +18,28 @@ class Robot: public SampleRobot
 
 	RobotDrive robotDrive;	// robot drive system
 	Joystick stick;			// only joystick
+	LoggerController m_loggerController;
 
 public:
 	Robot() :
 			robotDrive(frontLeftChannel, rearLeftChannel,
 					   frontRightChannel, rearRightChannel),	// these must be initialized in the same order
-			stick(joystickChannel)								// as they are declared above.
-	{
+			stick(joystickChannel),								// as they are declared above.
+	                m_loggerController()
+    {
 	    plog::init(plog::debug, "/home/lvuser/robot_logger.txt");
 	    LOGD << "-------------------------New Run-------------------------";
 	    LOGD << "IT WORKS!";
 	    LOGD << "IT REALLY WORKS!!!";
 	    LOGD << "LETS PUT MORE HOLES IN THE WALL!!!!!";
+	    LOGF << "fatal Log";
+	    m_loggerController.updateSeverity();
+	    LOGD << "-------------------------New Run-------------------------";
+            LOGD << "IT WORKS!";
+            LOGD << "IT REALLY WORKS!!!";
+            LOGD << "LETS PUT MORE HOLES IN THE WALL!!!!!";
+            LOGF << "fatal Log";
+
 	       robotDrive.SetExpiration(0.1);
 		robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);	// invert the left side motors
 		robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);	// you may need to change or remove this to match your robot
