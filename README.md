@@ -21,7 +21,12 @@
 #### Initialization 
 
 1. At the top of your project, include plog/Log.h and sys/stat.h
-2. Enter the following code: plog::init(plog::debug, "FILE_PATH");
+2. Enter the following code: 
+
+      ```c++
+      plog::init(plog::debug, "FILE_PATH");
+      ```
+      
 3. Dooone :)
 
 #### Rules
