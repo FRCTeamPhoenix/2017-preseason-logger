@@ -20,31 +20,45 @@
 
 #### Initialization 
 
-1. At the top of your project, include plog/Log.h and sys/stat.h
-2. Enter the following code: 
+1. At the top of your project(Robot.cpp) include:
+- plog/Log.h
+- sys/stat.h
+2. At the top of your logger file(LoggerController.cpp) include:
+- plog/Record.h
+- plog/Severity.h
+- plog/Util.h
+- plog/Init.h
+- plog/Log.h
+- plog/Logger.h
+3. Enter the following code before using the logger: 
 
       ```c++
-      plog::init(plog::debug, "FILE_PATH");
+      plog::init(plog::debug, "/home/lvuser/FILE_NAME.txt");
       ```
       
-3. Dooone :)
+4. Dooone :)
 
 #### Rules
 
-- Minimize number of logs otherwise there will end up being a very large amount of them to go through. 
-- Only make new logs to differentiate between major topics.
+- Minimize number of logs otherwise there will end up being a very large amount of them to go through 
+- Only make new logs to differentiate between major topics
+- Do not log excessively, we do not want to to clutter the logs
+- Once you are done with a log state,ent, delete it, again we do not want to clutter the logs
 
 ##### When to Log
+
 You should only log when you are:
-- Trying to debug.
-- Printing out values of components.
-- Anything you would normally send to the dashboard. 
+- Trying to debug
+- Printing out values of components
+- Anything you would normally send to the dashboard
+- Tracking Auto
+- Tracking Telop
 
 #### Conventions
 
-Simple statements.
-
-Include what data you are logging.
+- Simple statements
+- Include what data you are logging
+- The purpose of the data logged
 
 Example using 2016 robot code :
 
